@@ -35,6 +35,10 @@ RUN set -ex; \
 	mkdir -p "$GHOST_CONTENT"; \
 	chown node:node "$GHOST_CONTENT"
 
+# symlink to home directory for azure web apps
+RUN set -ex; \
+	ln -s /home/site/wwwroot "$GHOST_CONTENT"
+
 WORKDIR $GHOST_INSTALL
 VOLUME $GHOST_CONTENT
 
